@@ -6,6 +6,7 @@
 <title>ByStay — Бронируйте жильё по всей Беларуси</title>
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -45,36 +46,20 @@ header p {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,.15);
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 15px;
 }
 
-.search-box input,
-.search-box select,
-.search-box button {
-    padding: 14px;
-    border-radius: 8px;
+.search-box input {
+    width: 100%;
+    padding: 15px;
     border: 1px solid #ddd;
-}
-
-.search-btn {
-    background: #00A650;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
-
-.search-btn:hover {
-    background: #008a45;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
 .section {
     max-width: 1200px;
     margin: auto;
-    padding: 30px 15px;
+    padding: 20px;
 }
 
 .section h2 {
@@ -90,10 +75,10 @@ header p {
 .city {
     background: white;
     padding: 20px;
-    border-radius: 12px;
     text-align: center;
-    font-weight: bold;
+    border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    font-weight: bold;
 }
 
 .hotels {
@@ -107,6 +92,11 @@ header p {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 3px 12px rgba(0,0,0,.12);
+    transition: .3s;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
 }
 
 .hotel-card img {
@@ -117,6 +107,10 @@ header p {
 
 .hotel-content {
     padding: 15px;
+}
+
+.hotel-content h3 {
+    margin-bottom: 8px;
 }
 
 .rating {
@@ -138,56 +132,53 @@ header p {
     background: #0071C2;
     color: white;
     text-decoration: none;
-    padding: 10px 14px;
+    padding: 10px 15px;
     border-radius: 8px;
 }
 
+.btn:hover {
+    background: #005fa3;
+}
+
+.empty {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+}
+
 footer {
-    margin-top: 40px;
+    margin-top: 50px;
     background: #0071C2;
     color: white;
     text-align: center;
     padding: 20px;
 }
+
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>ByStay</h1>
+    <h1>🏠 ByStay</h1>
     <p>Бронируйте жильё по всей Беларуси</p>
 </header>
 
 <div class="search-container">
     <div class="search-box">
-        <select>
-            <option>Минск</option>
-            <option>Брест</option>
-            <option>Гродно</option>
-            <option>Гомель</option>
-            <option>Витебск</option>
-            <option>Могилёв</option>
-            <option>Браслав</option>
-        </select>
 
-        <input type="date">
-        <input type="date">
+        <input
+            type="text"
+            id="citySearch"
+            placeholder="Введите город или название объекта..."
+        >
 
-        <select>
-            <option>1 гость</option>
-            <option>2 гостя</option>
-            <option>3 гостя</option>
-            <option>4+ гостей</option>
-        </select>
-
-        <button class="search-btn">
-            Найти жильё
-        </button>
     </div>
 </div>
 
 <section class="section">
+
     <h2>Популярные города</h2>
 
     <div class="cities">
@@ -198,53 +189,137 @@ footer {
         <div class="city">🌳 Гомель</div>
         <div class="city">🏞 Браслав</div>
     </div>
+
 </section>
 
 <section class="section">
-    <h2>Популярные варианты жилья</h2>
 
-    <div class="hotels">
+    <h2>Доступное жильё</h2>
 
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="">
-            <div class="hotel-content">
-                <h3>Отель Минск Центр</h3>
-                <div class="rating">⭐ 9.1 Превосходно</div>
-                <p>Wi‑Fi • Парковка • Завтрак</p>
-                <div class="price">120 BYN / ночь</div>
-                <a href="#" class="btn">Подробнее</a>
-            </div>
-        </div>
+    <div id="hotels" class="hotels"></div>
 
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="">
-            <div class="hotel-content">
-                <h3>Апартаменты Немига</h3>
-                <div class="rating">⭐ 8.8 Отлично</div>
-                <p>Центр города • Wi‑Fi</p>
-                <div class="price">95 BYN / ночь</div>
-                <a href="#" class="btn">Подробнее</a>
-            </div>
-        </div>
-
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80" alt="">
-            <div class="hotel-content">
-                <h3>Усадьба Браслав</h3>
-                <div class="rating">⭐ 9.5 Великолепно</div>
-                <p>Озеро • Баня • Парковка</p>
-                <div class="price">180 BYN / ночь</div>
-                <a href="#" class="btn">Подробнее</a>
-            </div>
-        </div>
-
-    </div>
 </section>
 
 <footer>
     © 2026 ByStay • Бронируйте жильё по всей Беларуси
 </footer>
 
+<script>
+
+const hotels = [
+
+{
+title:"Отель Минск Центр",
+city:"Минск",
+rating:"9.1",
+price:120,
+image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+},
+
+{
+title:"Апартаменты Немига",
+city:"Минск",
+rating:"8.8",
+price:95,
+image:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
+},
+
+{
+title:"Отель Брест",
+city:"Брест",
+rating:"9.0",
+price:110,
+image:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80"
+},
+
+{
+title:"Гродно Лофт",
+city:"Гродно",
+rating:"8.9",
+price:85,
+image:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
+},
+
+{
+title:"Усадьба Браслав",
+city:"Браслав",
+rating:"9.5",
+price:180,
+image:"https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80"
+}
+
+];
+
+const hotelsContainer = document.getElementById("hotels");
+const searchInput = document.getElementById("citySearch");
+
+function renderHotels(data) {
+
+    if(data.length === 0){
+
+        hotelsContainer.innerHTML = `
+            <div class="empty">
+                Ничего не найдено 😔
+            </div>
+        `;
+
+        return;
+    }
+
+    hotelsContainer.innerHTML = "";
+
+    data.forEach(hotel => {
+
+        hotelsContainer.innerHTML += `
+
+        <div class="hotel-card">
+
+            <img src="${hotel.image}" alt="${hotel.title}">
+
+            <div class="hotel-content">
+
+                <h3>${hotel.title}</h3>
+
+                <p>📍 ${hotel.city}</p>
+
+                <div class="rating">
+                    ⭐ ${hotel.rating}
+                </div>
+
+                <div class="price">
+                    ${hotel.price} BYN / ночь
+                </div>
+
+                <a href="#" class="btn">
+                    Подробнее
+                </a>
+
+            </div>
+
+        </div>
+
+        `;
+    });
+}
+
+renderHotels(hotels);
+
+searchInput.addEventListener("input", function(){
+
+    const value = this.value.toLowerCase().trim();
+
+    const filtered = hotels.filter(hotel =>
+
+        hotel.city.toLowerCase().includes(value) ||
+        hotel.title.toLowerCase().includes(value)
+
+    );
+
+    renderHotels(filtered);
+
+});
+
+</script>
+
 </body>
 </html>
-``
