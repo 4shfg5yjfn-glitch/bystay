@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ByStay — Бронируйте жильё по всей Беларуси</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #1a1a1a;
+}
+
+header {
+    background: #0071C2;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 52px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.search-container {
+    max-width: 1200px;
+    margin: -25px auto 50px;
+    padding: 0 15px;
+}
+
+.search-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 15px;
+}
+
+.search-box input,
+.search-box select,
+.search-box button {
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.search-btn {
+    background: #00A650;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background: #008a45;
+}
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 15px;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+.cities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(170px,1fr));
+    gap: 15px;
+}
+
+.city {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.hotels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 20px;
+}
+
+.hotel-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,.12);
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.hotel-content {
+    padding: 15px;
+}
+
+.rating {
+    color: #0071C2;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.price {
+    color: #00A650;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #0071C2;
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+
+footer {
+    margin-top: 40px;
+    background: #0071C2;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ByStay</h1>
+    <p>Бронируйте жильё по всей Беларуси</p>
+</header>
+
+<div class="search-container">
+    <div class="search-box">
+        <select>
+            <option>Минск</option>
+            <option>Брест</option>
+            <option>Гродно</option>
+            <option>Гомель</option>
+            <option>Витебск</option>
+            <option>Могилёв</option>
+            <option>Браслав</option>
+        </select>
+
+        <input type="date">
+        <input type="date">
+
+        <select>
+            <option>1 гость</option>
+            <option>2 гостя</option>
+            <option>3 гостя</option>
+            <option>4+ гостей</option>
+        </select>
+
+        <button class="search-btn">
+            Найти жильё
+        </button>
+    </div>
+</div>
+
+<section class="section">
+    <h2>Популярные города</h2>
+
+    <div class="cities">
+        <div class="city">🏙 Минск</div>
+        <div class="city">🏰 Брест</div>
+        <div class="city">🏛 Гродно</div>
+        <div class="city">🎭 Витебск</div>
+        <div class="city">🌳 Гомель</div>
+        <div class="city">🏞 Браслав</div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Популярные варианты жилья</h2>
+
+    <div class="hotels">
+
+        <div class="hotel-card">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="">
+            <div class="hotel-content">
+                <h3>Отель Минск Центр</h3>
+                <div class="rating">⭐ 9.1 Превосходно</div>
+                <p>Wi‑Fi • Парковка • Завтрак</p>
+                <div class="price">120 BYN / ночь</div>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="">
+            <div class="hotel-content">
+                <h3>Апартаменты Немига</h3>
+                <div class="rating">⭐ 8.8 Отлично</div>
+                <p>Центр города • Wi‑Fi</p>
+                <div class="price">95 BYN / ночь</div>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80" alt="">
+            <div class="hotel-content">
+                <h3>Усадьба Браслав</h3>
+                <div class="rating">⭐ 9.5 Великолепно</div>
+                <p>Озеро • Баня • Парковка</p>
+                <div class="price">180 BYN / ночь</div>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 ByStay • Бронируйте жильё по всей Беларуси
+</footer>
+
+</body>
+</html>
+``
